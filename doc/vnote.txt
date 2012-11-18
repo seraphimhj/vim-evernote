@@ -1,0 +1,17 @@
+==============================================================
+  Vnote - Post to Evernote from Vim
+  Based on oauth access library by Mattn
+==============================================================
+
+ 1. user request to login 
+ 2. app request temporary credentials (request token url: https://sandbox.evernote.com/oauth?oauth_consumer_key=en_oauth_test&oauth_signature=1ca0956605acc4f2%26&oauth_signature_method=PLAINTEXT&oauth_timestamp=1288364369&oauth_nonce=d3d9446802a44259&oauth_callback=https%3A%2F%2Ffoo.com%2Fsettings%2Findex.php%3Faction%3DoauthCallback)
+ 3. app obtain oauth_token
+ 4. with oauth_token, app goto login_url: https://www.evernote.com/Login.action?targetUrl=%2FOAuth.action%3Foauth_token%3Dcolinloretz-2708.13AF512969A.687474703A2F2F7777772E636F6C6F727374616368652E636F6D2F617574686F72697A652E7068703F616374696F6E3D63616C6C6261636B.42FA41E523733519D9F57AB3B9FC20D4
+ 5. fill in user & passwd
+ 6. authorization page : https://www.evernote.com/OAuth.action?oauth_token=colinloretz-2708.13AF512969A.687474703A2F2F7777772E636F6C6F727374616368652E636F6D2F617574686F72697A652E7068703F616374696F6E3D63616C6C6261636B.42FA41E523733519D9F57AB3B9FC20D4
+ 7. grant access 
+ 8. redirection to callback URL
+ 9. app exchange oauth_token: https://sandbox.evernote.com/oauth?oauth_consumer_key=en_oauth_test&oauth_signature=1ca0956605acc4f2%26&oauth_signature_method=PLAINTEXT&oauth_timestamp=1288364923&oauth_nonce=755d38e6d163e820&oauth_token=colinloretz-2708.13AF512969A.687474703A2F2F7777772E636F6C6F727374616368652E636F6D2F617574686F72697A652E7068703F616374696F6E3D63616C6C6261636B.42FA41E523733519D9F57AB3B9FC20D4&oauth_verifier=DF427565AF5473BBE3D85D54FB4D63A4
+ 10. get response, parsered oauth_token & edam_noteStoreUrl:
+ oauth_token=S%3Ds4%3AU%3Da1%3AE%3D12bfd68c6b6%3AC%3D12bf8426ab8%3AP%3D7%3AA%3Den_oauth_test%3AH%3D3df9cf6c0d7bc410824c80231e64dbe1&oauth_token_secret=&edam_noteStoreUrl=https%3A%2F%2Fsandbox.evernote.com%2Fedam%2Fnote%2Fshard%2Fs4&edam_userId=161
+ 
