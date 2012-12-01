@@ -21,7 +21,7 @@ let s:note = expand('~/.vnote')
 let g:vnote_config = {}
 let g:vnote_config.consumer_key = "chiyantian"
 let g:vnote_config.consumer_secret = "943df63e8e294b48"
-let g:vnote_config.callback = "http://huangjian.info"
+let g:vnote_config.callback = "http://huangjian.info/oauth.html"
 
 " set rtp+=.
 
