@@ -21,7 +21,7 @@ let s:note = expand('~/.vnote')
 let g:vnote_config = {}
 let g:vnote_config.consumer_key = "chiyantian"
 let g:vnote_config.consumer_secret = "943df63e8e294b48"
-let g:vnote_config.callback = "huangjian.info"
+let g:vnote_config.callback = "http://huangjian.info"
 
 " set rtp+=.
 
@@ -84,7 +84,7 @@ function! vnote#VNote(count, line1, line2, ...)
     call writefile([string(notefile)], s:note)
 
     exec "cd ".g:Vnote_exec_dir
-    " exec "!python EDAMTest.py ".g:vnote_config.access_token
+    exec "!python EDAMTest.py ".g:vnote_config.access_token
     exec "cd -"
 endfunction
 
