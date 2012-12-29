@@ -27,7 +27,7 @@ let g:vnote_config.callback = "http://huangjian.info/oauth.html"
 
 if !exists('g:Vnote_exec_dir')
     let g:Vnote_exec_dir = simplify(expand('<sfile>:p:h') .'/..') .
-                \ "/evernote-sdk-python/sample"
+                \ "/evernote-sdk-python/bin"
     echo g:Vnote_exec_dir
 endif
 
@@ -84,7 +84,7 @@ function! vnote#VNote(count, line1, line2, ...)
     call writefile([string(notefile)], s:note)
 
     exec "cd ".g:Vnote_exec_dir
-    exec "!python EDAMTest.py ".g:vnote_config.access_token
+    exec "!python evernoteApi.py -a"
     exec "cd -"
 endfunction
 
