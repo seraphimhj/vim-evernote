@@ -16,7 +16,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let s:configfile = expand('~/.vnoterc')
-let s:note = expand('~/.vnote')
+let s:note_index = expand('~/.vnote/index')
+let s:note_content = expand('~/.vnote/content')
 
 let g:vnote_config = {}
 let g:vnote_config.consumer_key = "chiyantian"
@@ -81,7 +82,11 @@ function! vnote#VNote(count, line1, line2, ...)
     endif
     " in case Newline will be strtrans() to ^@ (nr2char(10))
     let notefile = map(notefile, 'substitute(v:val, "\n", "<br/>", "g")')
-    call writefile([string(notefile)], s:note)
+    echo notefile
+    call writefile(notefile.content, s:note_content)
+    notefile.content = s:note_content
+    echo notefile
+    call writefile([string(notefile)], s:note_index)
 
     exec "cd ".g:Vnote_exec_dir
     exec "!python evernoteApi.py -a"
