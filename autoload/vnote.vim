@@ -83,7 +83,7 @@ function! vnote#VNote(count, line1, line2, ...)
     " in case Newline will be strtrans() to ^@ (nr2char(10))
     let notefile = map(notefile, 'substitute(v:val, "\n", "<br/>", "g")')
     echo notefile
-    call writefile(notefile.content, s:note_content)
+    exec "silent! normal! w " . notefile.content . " " . s:note_content
     notefile.content = s:note_content
     echo notefile
     call writefile([string(notefile)], s:note_index)
